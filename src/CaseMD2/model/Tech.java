@@ -19,7 +19,7 @@ public class Tech {
         String[] fields = record.split(",");
         id = Integer.parseInt(fields[0].trim());
         name = fields[1].trim();
-        price = Integer.parseInt(fields[2].trim());
+        price = Double.parseDouble(fields[2].trim());
         quantity = Integer.parseInt(fields[3].trim());
         description = fields[4].trim();
     }
@@ -66,6 +66,6 @@ public class Tech {
 
     @Override
     public String toString() {
-        return id + ", " + name + ", " + price + ", " + quantity + ", " + description ;
+        return id + ", " + name + ", " + price + ", " + quantity + ", " + description;
     }
 }

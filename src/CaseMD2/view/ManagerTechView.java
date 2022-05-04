@@ -40,6 +40,7 @@ public class ManagerTechView {
             } catch (InputMismatchException io) {
                 System.out.println("Incorrect! Please Try again");
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println(e.getMessage());
             }
         } while (check);

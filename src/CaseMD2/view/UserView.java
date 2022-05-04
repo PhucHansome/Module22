@@ -20,17 +20,17 @@ public class UserView {
 
     public void loginAdmin() {
         System.out.println("* * * * * * * * * * * * LOGIN * * * * * * * * * * * *");
-        System.out.println("Username");
+        System.out.println("Username: ");
         System.out.print("➤ ");
         String username = scanner.nextLine();
-        System.out.println("Mật khẩu");
+        System.out.println("Mật khẩu: ");
         System.out.print("➤ ");
         String password = scanner.nextLine();
         if (userService.loginAdmin(username, password) == null) {
-            System.out.println("User Incorrect!");
+            System.out.println("User Incorrect! Please try again!!");
             chon();
         } else {
-            System.out.println("Bạn đã đăng nhập thành công \uD83C\uDF8A\n");
+            System.out.println("Bạn đã đăng nhập thành công!!!! \n");
             System.out.println("CHÀO MỪNG CÁC BẠN ĐÃ ĐẾN VỚI MARKET TECH \n");
         }
     }
@@ -84,19 +84,19 @@ public class UserView {
                     password = scanner.nextLine();
                 }
                 System.out.println("Nhập họ và tên ");
-                System.out.println("➤ ");
+                System.out.print("➤ ");
                 String name = scanner.nextLine();
                 while (!ValidateUtils.isNameValid(name)) {
                     System.out.println("Tên" + name + " không đúng định dạng. Vui lòng nhập lại! (tên phải viết Hoa chữ cái đầu và không dấu)");
                     System.out.println("Nhập tên ");
-                    System.out.println("➤ ");
+                    System.out.print("➤ ");
                     name = scanner.nextLine();
                 }
                 System.out.println("Nhập số điện thoại(Example: 090807786): ");
-                System.out.println("➤ ");
+                System.out.print("➤ ");
                 String phone = scanner.nextLine();
                 while (!ValidateUtils.isPhoneValid(phone)) {
-                    System.out.println("Số " + phone + " Của bạn không đúng định dạng. Vui lòng nhập lại! (số điện thoại bao gồm 10 số và bắt dầu là số 0");
+                    System.out.println("Số " + phone + " Của bạn không đúng định dạng. Vui lòng nhập lại! (số điện thoại bao gồm 10 số và bắt dầu là số 0)");
                     System.out.println("Nhập số điện thoại (Example: 090807786) ");
                     System.out.print("➤ ");
                     phone = scanner.nextLine();
@@ -168,13 +168,13 @@ public class UserView {
     }
 
     public void show() {
-        System.out.println("----------------------------------------LIST CUSTOMER-----------------------------");
-        System.out.printf("%-5s %-22s %-15s %-22s %-20s %-10s \n", "Id", "Tên", "Số điện thoại", "Email", "Địa chỉ", "Người dùng");
+        System.out.println("---------------------------------------------------------LIST CUSTOMER----------------------------------------------");
+        System.out.printf("%-5s %-25s %-20s %-25s %-25s %-15s \n", "Id", "Tên", "Số điện thoại", "Email", "Địa chỉ", "Người dùng");
         List<User> users = userService.getUsers();
         for (User user : users) {
-            System.out.printf("%-5d %-22s %-15s %-22s %-20s %-10s\n", user.getId(), user.getName(), user.getPhone(), user.getEmail(), user.getAddress(), user.getRole());
+            System.out.printf("%-5d %-25s %-20s %-25s %-25s %-15s\n", user.getId(), user.getName(), user.getPhone(), user.getEmail(), user.getAddress(), user.getRole());
         }
-        System.out.println("----------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------");
         System.out.println(" ");
     }
 
@@ -184,7 +184,7 @@ public class UserView {
             boolean is = true;
             do {
                 System.out.println("Nhấn 'q' để trở lại \t|\t 't' để thoát ra chương trình");
-                System.out.println("➤ ");
+                System.out.print("➤ ");
                 String choice = scanner.nextLine();
                 switch (choice) {
                     case "q":

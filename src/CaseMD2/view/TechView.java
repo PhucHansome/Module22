@@ -38,7 +38,7 @@ public class TechView {
                 System.out.println("Mô tả sản phẩm: ");
                 System.out.print("➤ ");
                 String description = scanner.nextLine();
-                Tech tech = new Tech(id, name, price, quantity, description);
+                Tech tech = new Tech(id,name,price,quantity,description);
                 techService.add(tech);
                 System.out.println("bạn đã thêm sản phẩm thành công\n");
             }
@@ -92,7 +92,7 @@ public class TechView {
                     break;
                 case 2:
                     System.out.println("Nhập vào giá bạn muốn sửa: ");
-                    System.out.println("➤ ");
+                    System.out.print("➤ ");
                     double price = Double.parseDouble(scanner.nextLine());
                     tech.setPrice(price);
                     techService.update();
@@ -132,13 +132,15 @@ public class TechView {
 
     public void show() {
         List<Tech> techs = techService.getTechs();
-        System.out.println("-----------------------------------LIST TECH-----------------------------------");
-        System.out.printf("%-10s %-30s %-18s %-10s %-10s", "Id", "Tên sản phẩm", "Giá sản phẩm", "Số lượng", "Mô tả");
+        System.out.println("----------------------------------------------------LIST TECH----------------------------------------------------");
+        System.out.printf("%-10s %-30s %-25s %-15s %-15s", "Id", "Tên sản phẩm", "Giá sản phẩm", "Số lượng", "Mô tả");
         System.out.println(" ");
         for (Tech te : techs) {
-            System.out.printf("%-10s %-30s %-18s %-10s %-10s", te.getId(), te.getName(), te.getPrice(), te.getQuantity(), te.getDescription());
+            System.out.println(" ");
+            System.out.printf("%-10s %-30s %-25s %-15s %-15s", te.getId(), te.getName(), te.getPrice(), te.getQuantity(), te.getDescription());
         }
-        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println(" ");
+        System.out.println("------------------------------------------------------------------------------------------------------------------");
     }
 
     public void showTech() {
@@ -148,7 +150,7 @@ public class TechView {
             System.out.println("-------------------------------------------------------");
             System.out.println("| Nhấn 'y' để trở lại \t|\t 'n' để thoát chương trình |");
             System.out.println("-------------------------------------------------------");
-            System.out.println("➤ ");
+            System.out.print("➤ ");
             String choice = scanner.nextLine();
             switch (choice) {
                 case "y":
@@ -192,7 +194,7 @@ public class TechView {
                         System.out.println("------------------------------------------------------------");
                         System.out.println("| Nhấn 'y' để trở lại \t|\t Nhấn 'n' để thoát chương trình |");
                         System.out.println("------------------------------------------------------------");
-                        System.out.println("➤ ");
+                        System.out.print("➤ ");
                         String choice = scanner.nextLine();
                         switch (choice) {
                             case "y":

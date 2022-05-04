@@ -47,7 +47,7 @@ public class OrderView {
         while (!checkQualityTech(tech, quantity)) {
             System.out.println("Vượt quá số lượng! vui lòng nhập lại");
             System.out.println("Nhập số lượng");
-            System.out.println("➤ ");
+            System.out.print("➤ ");
             quantity = Integer.parseInt(scanner.nextLine());
 
         }
@@ -106,7 +106,7 @@ public class OrderView {
                 System.out.println("\t☠            4. Nhấn 't' để thoát                     ☠");
                 System.out.println("\t☠                                                     ☠");
                 System.out.println("\t☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠ ☠");
-                System.out.println("➤ ");
+                System.out.print("➤ ");
                 String choice = scanner.nextLine();
                 switch (choice) {
                     case "y":
@@ -132,11 +132,11 @@ public class OrderView {
 
     public void showPaymentInfo(OrderItem orderItem, Order order) {
         try {
-            System.out.println("-------------------------BILLS---------------------------------");
+            System.out.println("----------------------------------BILLS-------------------------------------------");
             System.out.printf("|%-15s %-20s %-15s %-15s %-15s %-15s %-15s\n|", " Id", "Tên khách hàng", "SĐT", "Địa chỉ", "Tên sản phẩm", "Số lượng", "Giá");
             System.out.printf("%-15d %-20s %-15s %-15s %-15s %-15d %-15f \n|", order.getId(), order.getName(), order.getPhone(), order.getAddress(), orderItem.getTechName(), orderItem.getQuantity(), orderItem.getPrice());
             System.out.println("----------------------------------------------------------------Tổng tiền: " + orderItem.getTotal());
-            System.out.println("--------------------------Market Tech----------------------------");
+            System.out.println("------------------------------Market Techs----------------------------------------");
             boolean is = true;
             do {
                 System.out.println("Nhấn 'q' để trở lại \t|\t Nhấn 't' để thoát chương trình");
@@ -166,9 +166,9 @@ public class OrderView {
         List<OrderItem> orderItems = orderItemService.getOrderItems();
         OrderItem newOrderItem = new OrderItem();
         try {
-            System.out.println("------------------------------------------------LIST ORDER---------------------------------------------");
-            System.out.println("|                                                                                                     |");
-            System.out.printf("|%-15s %-20s %-12s %-23s %-10s %-10s %-15s %-21s \n|", " Id", "Tên khách hàng", " SĐT", "Địa chỉ", " Tên sản phẩm", " số lượng", " Giá", "Tổng " + "            |");
+            System.out.println("-----------------------------------------------------------------------LIST ORDER--------------------------------------------------------------------");
+            System.out.println("|                                                                                                                                                    |");
+            System.out.printf("|%-15s %-20s %-15s %-20s %-20s %-15s %-20s %-25s \n|", " Id", "Tên khách hàng", " SĐT", "Địa chỉ", " Tên sản phẩm", " số lượng", " Giá", "Tổng " +"     |");
             for (Order order : orders) {
                 for (OrderItem orderItem : orderItems) {
                     if (orderItem.getOrderId() == order.getId()) {
@@ -176,10 +176,10 @@ public class OrderView {
                         break;
                     }
                 }
-                System.out.printf("%-15d %-20s %-12s %-23s %-10s %-10d %-15f %-21f %-7s \n|", order.getId(), order.getName(), order.getPhone(), order.getAddress(), newOrderItem.getTechName(), newOrderItem.getQuantity(), newOrderItem.getPrice(), newOrderItem.getTotal(), "|");
+                System.out.printf("%-15d %-20s %-15s %-20s %-20s %-15d %-20f %-25f %-7s \n|", order.getId(), order.getName(), order.getPhone(), order.getAddress(), newOrderItem.getTechName(), newOrderItem.getQuantity(), newOrderItem.getPrice(), newOrderItem.getTotal(), "  |");
             }
-            System.out.println("|                                                                                                      |");
-            System.out.println("------------------------------------------------Market Tech---------------------------------------------");
+            System.out.println("|                                                                                                                                                               |");
+            System.out.println("-----------------------------------------------------------------------Market Tech--------------------------------------------------------------------");
             boolean is = true;
             do {
                 System.out.println("Nhấn 'q' để trở lại \t|\t Nhấn 't' để thoát chương trình");
